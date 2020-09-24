@@ -1,0 +1,43 @@
+
+#include <cstring>
+
+Student::Student(const char initID[], double gpa) {
+	strcpy(id, initID);
+	this->gpa = gpa;
+}
+
+bool Student::isLessThanByID(const Student& aStudent) const {
+	for (int i = 0; i < MAX_CHAR; i++) {
+		if (this->id[i] < aStudent.id[i]) return true;
+		if( this->id[i] == '\0' ) break;
+	}
+	return false;
+}
+
+
+#include "student.h"
+
+int main()
+{
+	Student s1("G10", 3.9);
+	Student s2("G20", 3.5);
+
+	s1.print();
+	s2.print();
+
+	cout << s1.isLessThanByID(s2) << endl;
+	cout << s2.isLessThanByID(s1) << endl;
+	cout << s2.qualifyForHonor(3.6) << endl;
+	cout << s1.qualifyForHonor(3.4) << endl;
+
+
+	return 0;
+}
+
+
+G10	3.9
+G20	3.5
+1
+0
+0
+1

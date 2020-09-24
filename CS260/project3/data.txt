@@ -1,0 +1,34 @@
+Data Sources,CitySDK,https://uscensusbureau.github.io/citysdk/,Census Bureau API for Census data,Good tool to have,3
+Data Sources,Socioeconomic Data And Applications Center,http://sedac.ciesin.columbia.edu/,A data center in NASA's Earth Observing System Data and Information System,Useful mappings of social data,4
+Data Sources,MusicBrainz,https://musicbrainz.org/,Open source music database,Great alternative to closed musical data sources such as allmusic,4
+Misc Programming,Bit Twiddling Hacks,http://graphics.stanford.edu/~seander/bithacks.html,Ways of manipulating bits for different calculations,Fun information to know but not always particularly useful or efficient,3
+Programming Puzzles,CodingBat,http://codingbat.com/,Java and Python coding problems,Very simplistic but good for reacclimating to Java or Python,3
+Programming Puzzles,LeetCode,https://leetcode.com/problemset/all/,Coding problems to practice algorithms and data structures for interviews,Enormous sets of problems in many different difficulties and lots of different languages great for learning a new language with simple problems and practicing new data structures,4
+Programming Puzzles,HackerEarth,https://www.hackerearth.com/practice/,Programming Tutorials and Practice Problems,Gives tracks to structure learning through problem solving,2
+Linear Algebra,Immersive Math,http://immersivemath.com/ila/index.html,Interactive online linear algebra textbook,Makes linear algebra more intuitive,4
+Linear Algebra,Linear Algebra,http://joshua.smcvt.edu/linearalgebra/#current_version,Free undergraduate linear algebra textbook,Good to have for supplemental work,3
+Algorithms,Algorithm Repository,http://algorist.com/sections/Data_Structures.html,Collection of explanations of data structures,Cool information with recommended books but limited,3
+Algorithms,Dictionary of Algorithms,https://xlinux.nist.gov/dads/,NIST Dictionary of Algorithms and Data Structures,Very comprehensive and full of things I'll probably never need fun to look through,4
+Food,America's Test Kitchen,https://www.americastestkitchen.com/,Official ATK Site,It's alright.,2
+Food,Food Network,https://www.foodnetwork.com,Food Network Channel Official Web Site,The recipes here all suck,1
+Food,Serious Eats,https://www.seriouseats.com,Cooking blog in the vein of America's Test Kitchen,Has all the good stuff,3
+Food,Genuine Ideas,https://genuineideas.com/food.html,Personal site for Greg Blonder,Has some interesting information about cooking in a few random topics,4
+Tarot,Jacques Vieville,http://www.tarot-history.com/Jacques-Vieville/pages/page-2.html,Images of Jacques Vieville's Tarot cards,Good reference for art project,3
+Statistics,How To Teach Stats,https://lindeloev.github.io/tests-as-linear/,Common statistical tests are linear models,Should be a good reference when I get into statistics,4
+Databases,Theory of Relational Databases,http://web.cecs.pdx.edu/~maier/TheoryBook/TRD.html,David Maier's Database textbook,Out of print but good to know,5
+Security,Malware Analysis,http://fumalwareanalysis.blogspot.com/p/malware-analysis-tutorials-reverse.html,Dr. Fu's Security Blog,good reverse engineering practice,4
+Security,Linux Hardening Guide,https://github.com/trimstray/the-practical-linux-hardening-guide,github repo of a guide for a secure linux production system,constantly evolving and relevant current information,4
+Javascript,You Don't Know Javascript,https://github.com/getify/You-Dont-Know-JS,Javscript Online Textbook,Open source textbook but not my favorite,1
+Javascript,MDN Javascript,https://developer.mozilla.org/en-US/docs/Learn/JavaScript,Mozilla Developer Network's Javascript learning path,probably one of the better standard javascript tutorials,3
+Haskell,Learn You A Haskell For Great Good,http://learnyouahaskell.com/chapters,Online text for haskell,The standard recommendation,4
+Computer Systems,Introduction To Computer Systems,https://scs.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22b96d90ae-9871-4fae-91e2-b1627b43e25e%22&sortColumn=1&sortAscending=true,Official CMU lectures for the course,Great resource beyond the uses of the course,5
+Software Engineering,Software Construction,https://ocw.mit.edu/ans7870/6/6.005/s16/,MIT 6.005 Software Construction Course,Great course outlining the processes involved in building software,4
+Testing,Software Quality,http://softwaretestingfundamentals.com/software-quality/,Software Testing Fundamentals,The basics of testing good to know,3
+Software Architecture,Architecture of Open Source Applications,http://aosabook.org/en/index.html,Book reviewing software architectures in use in many OSS,Good for getting hands on experience with larger artchitectures,3
+Software Architecture,System Design Primer,https://github.com/donnemartin/system-design-primer/blob/master/README.md,Overview of system design concepts,Just a quick outline and not too in depth,2
+Coding Competition,Master The Mainframe,https://www.ibm.com/it-infrastructure/z/education/master-the-mainframe-past-championship,IBM Master The Mainframe past championships,An IBM coding competition based around mainframes,1
+Coding Competition,Google Code Jam,https://code.google.com/codejam/,Google's code competition,Good for past competition problems,3
+Assembly,Guide to x86 Assembly,http://www.cs.virginia.edu/~evans/cs216/guides/x86.html,University of Virginia x86 Assembly Guide,keeps things pretty simple and quick to look up,3
+Assembly,x86 Assembly with Ubuntu,http://www.cs.virginia.edu/~evans/cs216/guides/x86.html,x86 Assembly Language Programming with Ubuntu,assembly in linux is so much simpler,4
+Prolog,Learn Prolog Now,http://www.learnprolognow.org/lpnpage.php?pageid=online,online text for learning prolog,good free resource for a language where they are lacking,4
+Math,Fourier Transform,http://www.thefouriertransform.com/,Page committed solely to Fourier Transforms,Great focus on the subject,5

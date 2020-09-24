@@ -1,0 +1,45 @@
+bool insert(int position, int val, int intList[], int& size)
+{	
+	if (position > size) return false;
+	if (size == 0) {
+		intList[position] = val;
+		++size;
+		return true;
+	}
+
+	int swap = 0;
+	++size;
+	for (int i = position; i < size; i++) {
+		swap = intList[i];
+		intList[i] = val;
+		val = swap;
+	}
+
+	return true;
+}
+
+bool remove(int position, int& val, int intList[], int& size)
+{
+	if (position >= size) return false;
+	if (position == size-1) {
+		val = intList[position];
+		intList[position] = 0;
+		--size;
+		return true;
+	}
+	val = intList[position];
+	for (int i = position + 1; i < size; i++) {
+		intList[i-1] = intList[i];
+	}
+	--size;
+
+	return true;
+}
+
+[ ]
+
+[ 4 40 25 10 20 ]
+remove failed
+40 is removed!
+
+[ 4 25 10 20 ]

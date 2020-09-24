@@ -1,0 +1,27 @@
+
+bool LinkedList::del( char ch ) {
+	Node** curr = &head;
+	Node* temp = nullptr;
+
+	while ( *curr != nullptr ) {
+		if ( (*curr)->data == ch ) {
+			temp = *curr;
+			*curr = (*curr)->next;
+			delete temp;
+
+			return true;
+		}
+
+		curr = &((*curr)->next);
+	}
+
+	return false;
+}
+xyz
+found y
+xz
+did not find y
+z
+did not find y
+
+did not find y

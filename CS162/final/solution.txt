@@ -1,0 +1,50 @@
+#include "list.h"
+
+int countEven(node * head) {
+	node *curr = head;
+	int count = 0;
+
+	while ( curr != NULL ) {
+		if ( curr->data % 2 == 0 ) {
+			++count;
+		}
+
+		curr = curr->next;
+	}
+
+	return count;
+}
+
+int removeEven(node *& head) {
+	node *curr = NULL;
+	int count = 0;
+	while ( head->data % 2 == 0 ) {
+		++count;
+		head = head->next;
+	}
+
+	curr = head;
+
+	while ( curr->next != NULL ) {
+		if ( curr->next->data % 2 == 0 ) {
+			++count;
+			curr->next = curr->next->next;
+			continue;
+		}
+
+		curr = curr->next;
+	}
+
+	return count;
+}
+Here is the original list: 2 -> 18 -> 19 -> 2 -> 23 -> 68 -> 10 -> 25 -> 25 -> 60 -> 50 -> 76 -> 87 -> 27 -> 2
+
+This list contains 15 number of items 
+Number of evens in the list: 9
+Number of even elements removed from the list: 9
+The list after removal: 
+
+The resulting list is... 19 -> 23 -> 25 -> 25 -> 87 -> 27
+
+This list contains 6 number of items 
+The sum of all data is: 206

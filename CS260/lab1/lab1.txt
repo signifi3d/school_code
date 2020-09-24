@@ -1,0 +1,11 @@
+lab1:
+total 8
+-rw------- 1 blake.eakin students 112 Apr  1 11:53 [0m[00mhello.cpp[0m
+-rw------- 1 blake.eakin students   0 Apr  1 12:00 [00mlab1.txt[0m
+-rw------- 1 blake.eakin students  52 Apr  1 11:58 [00mmakefile[0m
+all:
+	g++ -o myhello hello.cpp
+
+clean:
+	rm myhello
+
