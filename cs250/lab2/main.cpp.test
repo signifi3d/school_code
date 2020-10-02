@@ -1,0 +1,210 @@
+/*******************
+ * NAME: Blake Eakin
+ * ASSIGNMENT: Lab 2
+ * SOURCES: None
+ ******************/
+
+ #include <iostream>
+ #include <limits>
+ #include <cmath>
+ #include <string>
+
+ struct bSumResult {
+    bool sum = 0;
+    bool carry = 0;
+ };
+
+bool ANDgate(bool, bool);
+bool ORgate(bool, bool);
+bool NOTgate(bool);
+bool XORgate(bool, bool);
+bSumResult halfAdder(bool, bool);
+bSumResult fullAdder(bool, bool, bool);
+int bStringToInt(std::string);
+
+int main() {
+
+    std::string s_lval;
+    std::string s_rval;
+    int  sum_lval = 0;
+    int  sum_rval = 0;
+    int  sum_res = 0;
+    bSumResult sum_tmp;
+
+/*
+    std::cout << "Tests." << std::endl;
+    std::cout << "ANDgate" << std::endl;
+    std::cout << "1 1 " << ANDgate(true, true) << std::endl;
+    std::cout << "1 0 " << ANDgate(true, false) << std::endl;
+    std::cout << "0 1 " << ANDgate(false, true) << std::endl;
+    std::cout << "0 0 " << ANDgate(false, false) << std::endl;
+
+    std::cout << "ORgate" << std::endl;
+    std::cout << "1 1 " << ORgate(true, true) << std::endl;
+    std::cout << "1 0 " << ORgate(true, false) << std::endl;
+    std::cout << "0 1 " << ORgate(false, true) << std::endl;
+    std::cout << "0 0 " << ORgate(false, false) << std::endl;
+    std::cout << "XORgate" << std::endl;
+    std::cout << "1 1 " << XORgate(true, true) << std::endl;
+    std::cout << "1 0 " << XORgate(true, false) << std::endl;
+    std::cout << "0 1 " << XORgate(false, true) << std::endl;
+    std::cout << "0 0 " << XORgate(false, false) << std::endl;
+    std::cout << "NOTgate" << std::endl;
+    std::cout << "1 " << NOTgate(true) << std::endl;
+    std::cout << "0 " << NOTgate(false) << std::endl;
+    std::cout << "halfAdder" << std::endl;
+    std::cout << "1 1 ";
+    sum_tmp = halfAdder(true, true);
+    std::cout << "sum: " << sum_tmp.sum << " carry: " << sum_tmp.carry << std::endl;
+    std::cout << "1 0 ";
+    sum_tmp = halfAdder(true, false);
+    std::cout << "sum: " << sum_tmp.sum << " carry: " << sum_tmp.carry << std::endl;
+    std::cout << "0 1 ";
+    sum_tmp = halfAdder(false, true);
+    std::cout << "sum: " << sum_tmp.sum << " carry: " << sum_tmp.carry << std::endl;
+    std::cout << "0 0 ";
+    sum_tmp = halfAdder(false, false);
+    std::cout << "sum: " << sum_tmp.sum << " carry: " << sum_tmp.carry << std::endl;
+    
+    std::cout << "fullAdder" << std::endl;
+    std::cout << "1 1 1" << std::endl;
+    sum_tmp = fullAdder(true, true, true);
+    std::cout << "Sum: " << sum_tmp.sum << " Carry: " << sum_tmp.carry << std::endl;
+    std::cout << "1 1 0" << std::endl;
+    sum_tmp = fullAdder(true, true, false);
+    std::cout << "Sum: " << sum_tmp.sum << " Carry: " << sum_tmp.carry << std::endl;
+    std::cout << "1 0 1" << std::endl;
+    sum_tmp = fullAdder(true, false, true);
+    std::cout << "Sum: " << sum_tmp.sum << " Carry: " << sum_tmp.carry << std::endl;
+    std::cout << "1 0 0" << std::endl;
+    sum_tmp = fullAdder(true, false, false);
+    std::cout << "Sum: " << sum_tmp.sum << " Carry: " << sum_tmp.carry << std::endl;
+    std::cout << "0 1 1" << std::endl;
+    sum_tmp = fullAdder(false, true, true);
+    std::cout << "Sum: " << sum_tmp.sum << " Carry: " << sum_tmp.carry << std::endl;
+    std::cout << "0 1 0" << std::endl;
+    sum_tmp = fullAdder(false, true, false);
+    std::cout << "Sum: " << sum_tmp.sum << " Carry: " << sum_tmp.carry << std::endl;
+    std::cout << "0 0 1" << std::endl;
+    sum_tmp = fullAdder(false, false, true);
+    std::cout << "Sum: " << sum_tmp.sum << " Carry: " << sum_tmp.carry << std::endl;
+    std::cout << "0 0 0" << std::endl;
+    sum_tmp = fullAdder(false, false, false);
+    std::cout << "Sum: " << sum_tmp.sum << " Carry: " << sum_tmp.carry << std::endl;
+*/
+    std::cout << "Blake Eakin" << std::endl << std::endl;
+
+    //Main loop
+    for (int i = 0; i < 4; ++i) {
+        std::cout << "Input first binary number to sum: ";
+        std::cin >> s_lval;
+        sum_lval = bStringToInt(s_lval);
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        std::cout << "Input second binary number to sum: ";
+        std::cin >> s_rval;
+        sum_rval = bStringToInt(s_rval);
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
+        std::cout << "The numbers to be added are " << s_lval << " and " << s_rval << std::endl;
+
+        //Keep performing full add until nothing left to add
+        for (int i = 0; sum_lval != 0 || sum_rval != 0 || sum_tmp.carry != 0; ++i) {
+           sum_tmp = fullAdder(sum_lval & 1, sum_rval & 1, sum_tmp.carry);
+           sum_lval = sum_lval >> 1;
+           sum_rval = sum_rval >> 1;
+           sum_res |= (int)pow(2,i)*sum_tmp.sum;
+        }
+
+
+        //Print result
+        std::cout << "The answer is ";
+        for (int i = sum_res > 255 ? 8 : 7; i >= 0; --i)  {
+
+            std::cout << ((sum_res & (int)pow(2,i)) != 0);
+            //sum_res = sum_res >> 1;
+            if (i % 4 == 0)
+                std::cout << " ";
+
+        }
+        std::cout << std::endl << std::endl;
+
+        //Reset sum for next run
+        sum_res = 0;
+    }
+
+    return 0;
+}
+
+
+bool ANDgate(bool in_one, bool in_two) {
+    return in_one && in_two;
+}
+
+
+bool ORgate(bool in_one, bool in_two) {
+    return in_one || in_two;
+}
+
+
+bool NOTgate(bool in) {
+    return !in;
+}
+
+
+bool XORgate(bool in_one, bool in_two) {
+    return ANDgate(ORgate(in_one, in_two), NOTgate(ANDgate(in_one, in_two)));
+}
+
+
+bSumResult halfAdder(bool in_one, bool in_two) {
+    bSumResult res;
+    
+    res.sum = XORgate(in_one, in_two);
+    res.carry = ANDgate(in_one, in_two);
+
+    return res;
+}
+
+
+bSumResult fullAdder(bool in_one, bool in_two, bool carry) {
+    bSumResult res_one;
+    bSumResult res_two;
+
+    std::cout << "The bits are " << in_one << " and " << in_two << ". The carry in is " << carry;
+
+    res_one = halfAdder(in_one, in_two);
+    res_two = halfAdder(res_one.sum, carry);
+    res_two.carry = ORgate(res_two.carry, res_one.carry);
+
+    std::cout << ". The sum is " << res_two.sum << ". The carry out is " << res_two.carry << std::endl;
+
+    return res_two;
+}
+
+int bStringToInt(std::string b_string) {
+    int res = 0;
+
+    for (int i = 0; i < 9; ++i) {
+        //Check for space or null
+        if (b_string[i] == 32)
+            continue;
+        else if (b_string[i] == 0)
+            break;
+        
+        //Make space for next digit
+        res = res << 1;
+
+        //Set next digit to 1 if '1', keep as 0 if '0', error otherwise
+        if (b_string[i] == 49) 
+            res |= 1;
+        else if (b_string[i] == 48)
+            continue;
+        else {
+            std::cerr << b_string[i] << " is not a valid binary digit." << std::endl;
+            exit(1);
+        }
+    }
+
+    return res;
+}
