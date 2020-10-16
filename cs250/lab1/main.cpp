@@ -15,8 +15,8 @@
 #define PAD std::setw(7)
 
 
-bool evalPrem(bool p, bool q, bool r);
-bool evalConc(bool p, bool q, bool r);
+bool evalPrem(const bool p, const bool q, const bool r);
+bool evalConc(const bool p, const bool q, const bool r);
 void printRes(const bool (&t_table)[8][5]);
 
 
@@ -50,17 +50,18 @@ int main() {
 bool evalPrem(const bool p, const bool q, const bool r) {
     //Edit the following line to change the premise.
     return ( (p || q ? r : true) && (!q == p) && ((!r || q) ^ p) );
+    //return (p && r) ? q : true;
 }
 
 
 bool evalConc(const bool p, const bool q, const bool r) {
     //Edit the following line to change the conclusion.
     return !q && r;
+    //return q || r;
 }
 
 
 void printRes(const bool (&t_table)[8][5]) {
-    bool valid = false;
     bool invalid = false;
 
     //Check for invalid rows.
@@ -72,7 +73,7 @@ void printRes(const bool (&t_table)[8][5]) {
     }
 
     //Check if argument was valid.
-    if (valid && !invalid) {
+    if (!invalid) {
         std::cout << "The argument is valid." << std::endl;
     }
 
