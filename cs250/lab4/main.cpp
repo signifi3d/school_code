@@ -37,7 +37,7 @@ void hanoi(const int curr, const int src, const int dst, const int extra) {
     else { //Move top disks, then the desired disk, then move them back on top
         hanoi(curr-1, src, extra, dst);
         std::cout << "moved disk from " << src << " to " << dst << std::endl;
-        hanoi(curr-1, extra, dst, curr);
+        hanoi(curr-1, extra, dst, src);
     }
     
 }
