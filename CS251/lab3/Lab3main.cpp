@@ -47,7 +47,7 @@ int main(int argc, char ** argv) {
     unsigned int pq, d;
     int c;
 
-    std::cout << "Blake Eakin" << << std::endl << std::endl;
+    std::cout << "Blake Eakin" << std::endl << std::endl;
 
     //Check for proper # of command line arguments
     if (argc != 2) {
