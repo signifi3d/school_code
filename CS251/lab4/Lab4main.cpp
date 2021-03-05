@@ -54,7 +54,7 @@ int main() {
         std::cout << std::endl;
     }
     std::cout << std::endl;
-/*
+
     mST = inputGraph.prims(); //Run Prim's Algorithm and output
 
     std::cout << "The output from Prim's algorithm: " << std::endl;
@@ -67,7 +67,7 @@ int main() {
 
     std::cout << "The total weight of the graph is " << mST.totalWeight() 
         << std::endl;
-*/
+
     std::cout << "The shortest length from 6 to 1 is: " << inputGraph.dijkstraLength(6,1) << std::endl;
 
     return 0;
@@ -142,7 +142,42 @@ int WeightedGraph::totalWeight() {
 
 
 WeightedGraph WeightedGraph::prims() {
-    //Not so fast buddy
+    std::vector<int> availableVertices, mstVertices;
+    WeightedGraph minSpanTree(this->numOfVertices());
+
+    //Fill availableVertices
+    for (int i = 1; i < this->numOfVertices(); ++i) {
+        availableVertices.push_back(i);
+    }
+
+    //Add first vertice to minSpanTree
+    mstVertices.push_back(0);
+
+    //Simple min search for minimum edge weight
+    while ( availableVertices.size() > 0 ) {
+        int min = 1000, minI = 0, minJ = 0;
+
+        for ( int i = 0; i < availableVertices.size(); ++i ) {
+            for ( int j = 0; j < mstVertices.size(); ++j ) {
+                int weight = this->graph[mstVertices[j]][availableVertices[i]];
+                //Make sure not to count 0s
+                if ( weight < min && weight != 0) {
+                    min = weight;
+                    minI = i;
+                    minJ = j;
+                }
+            }
+        }
+        
+        //Add weight to MST
+        minSpanTree.updateEdge(mstVertices[minJ], availableVertices[minI], min);
+        //Add vertex to MST vertices
+        mstVertices.push_back(availableVertices[minI]);
+        //Remove vertex from remaining vertices
+        availableVertices.erase(availableVertices.begin() + minI);
+    }
+
+    return minSpanTree;
 }
 
 
@@ -161,6 +196,12 @@ int WeightedGraph::dijkstraLength(int from, int to) {
     L[from] = 0;
 
     while ( !V[to] ) {
+        for ( int i = 0; i < this->numOfVertices(); ++i ) {
+            if (V[i])
+                std::cout << i << " ";
+        }
+        std::cout << std::endl;
+
         if ( F[v] ) {
             F[v] = false;
         }
