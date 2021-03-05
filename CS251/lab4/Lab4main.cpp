@@ -2,6 +2,10 @@
  * NAME: Blake Eakin
  * ASSIGNMENT: Lab 4
  * SOURCES: None
+ *
+ * Weighted Graph class, adjacency matrix implementation. Tailored for space
+ * and newline delimited adjacency matrix input and implementing Prim's and
+ * Dijkstra's algorithms.
  ******************/
 
 #include <iostream>
@@ -196,12 +200,6 @@ int WeightedGraph::dijkstraLength(int from, int to) {
     L[from] = 0;
 
     while ( !V[to] ) {
-        for ( int i = 0; i < this->numOfVertices(); ++i ) {
-            if (V[i])
-                std::cout << i << " ";
-        }
-        std::cout << std::endl;
-
         if ( F[v] ) {
             F[v] = false;
         }
